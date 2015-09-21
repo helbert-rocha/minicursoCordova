@@ -2,7 +2,7 @@
 <widget id="com.utfpr.minicurso" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
     <name>Minicurso</name>
     <description>
-        Minicuros desenlvido por Helbert da Rocha
+        Minicurso desenvolvido por Helbert da Rocha
     </description>
     <author email="helberti@outlook.com" href="http://phonegap.com">
         Helbert da Rocha
