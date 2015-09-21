@@ -1,0 +1,101 @@
+TYPE html>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+     KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+-->
+<html ng-app="Minicurso">
+    <head>
+        <!--
+        Customize this policy to fit your own app's needs. For more guidance, see:
+            https://github.com/apache/cordova-plugin-whitelist/blob/master/README.md#content-security-policy
+        Some notes:
+            * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
+            * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
+            * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
+                * Enable inline JS: add 'unsafe-inline' to default-src
+        -->
+        <!--<meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *">-->
+        <meta name="format-detection" content="telephone=no">
+        <meta name="msapplication-tap-highlight" content="no">
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+        <link rel="stylesheet" type="text/css" href="css/index.css">
+        <link rel="stylesheet" type="text/css" href="bower_components/angular-material/angular-material.min.css">
+        <link rel="stylesheet" type="text/css" href="bower_components/mdi/css/materialdesignicons.min.css">
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="bower_components/angular/angular.min.js"></script>
+        <script type="text/javascript" src="bower_components/angular-animate/angular-animate.min.js"></script>
+        <script type="text/javascript" src="bower_components/angular-aria/angular-aria.min.js"></script>
+        <script type="text/javascript" src="bower_components/angular-material/angular-material.min.js"></script>
+        <script type="text/javascript" src="bower_components/ngCordova/dist/ng-cordova.min.js"></script>
+        <script type="text/javascript" src="js/index.js"></script>
+
+        <title>Minicurso</title>
+    </head>
+    <body>
+        <md-content>
+            <md-toolbar>
+                <div class="md-toobar-tools">
+                    <h4>
+                        <span class="md-w">Minicurso Cordova com Angular 2015</span>
+                    </h4>
+                </div>
+            </md-toolbar>
+
+            <md-card>
+                <md-card-content class="main">
+                    <div ng-controller="MenuCtrl as menu" layout="column">
+                        <md-content class="md-padding" layout="column">
+                            <p>
+                               Primeiros passos
+                            </p>
+                            <div class="lock-size" layout="row" layout-align="center center">
+                                <md-fab-speed-dial md-open="demo.isOpen" md-direction="{{menu.selectedDirection}}"
+                                                   ng-class="menu.selectedMode">
+                                    <md-fab-trigger>
+                                        <md-button aria-label="menu" class="md-fab md-warn">
+                                            <md-icon class="mdi mdi-menu mdi-24px icon"></md-icon>
+                                        </md-button>
+                                    </md-fab-trigger>
+                                    <md-fab-actions>
+                                        <div ng-controller="VibrateCtrl">
+                                            <md-button aria-label="Vibrate" class="md-fab md-raised md-mini md-primary" ng-click="setVibration()">
+                                                <md-icon class="mdi mdi-vibrate mdi-24px"></md-icon>
+                                            </md-button>
+                                        </div>
+                                        <div ng-controller="PictureCtrl">
+                                            <md-button aria-label="Camera" class="md-fab md-raised md-mini md-primary" ng-click="getPhoto()">
+                                                <md-icon class="mdi mdi-camera mdi-24px"></md-icon>
+                                            </md-button>
+                                        </div>
+                                    </md-fab-actions>
+                                </md-fab-speed-dial>
+                            </div>
+
+                            <div id="image"></div>
+
+                        </md-content>
+                    </div>
+                </md-card-content>
+            </md-card>
+        </md-content>
+
+            <!--<div id="deviceready" class="blink">-->
+                <!--<p class="event listening">Connecting to Device</p>-->
+                <!--<p class="event received">E ai blz?</p>-->
+            <!--</div>-->
+    </body>
+</html>
